@@ -1,0 +1,23 @@
+﻿@model Employee;
+<div class="container w-50">
+    <h2 class="text-center">Login</h2>
+    @{
+        if (ViewData["success"] != null && !(bool)ViewData["success"])
+        {
+            <div class="alert alert-danger" role="alert">@ViewData["message"]</div>
+        }
+    }
+    <form asp-action="DoSignIn" asp-controller="User" method="post">
+        <div class="form-group">
+            <label asp-for="Email"></label>
+            <input asp-for="Email" class="form-control mb-3" />
+        </div>
+        <div class="form-group">
+            <label asp-for="Password"></label>
+            <input asp-for="Password" class="form-control" />
+        </div>
+        <div class="text-center">
+            <button class="btn-primary w-25 mb-3" name="btnLogin" type="submit">Login</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,37 @@
+﻿@model IList<Employee>
+
+<h2>Olá </h2>
+<h4>Relatório</h4>
+<hr />
+<form asp-action="GetReport" asp-controller="Report" method="get">
+    <input class="form-group" name="charge" />
+    <input name="btnFilter" type="submit" value="Filtrar"/>
+    <table style="width: 100%">
+        <tr>
+            <th>Nome</th>
+            <th>Cpf</th>
+            <th>Email</th>
+            <th>Data de Nascimento</th>
+            <th>Data de Admissão</th>
+            <th>Identificador</th>
+            <th>Passaporte</th>
+            <th>Cargo</th>
+        </tr>
+        @foreach (Employee e in Model)
+        {
+            <tr>
+                <td>@e.Name</td>
+                <td>@e.Cpf</td>
+                <td>@e.Email</td>
+                <td>@e.BirthDate.ToShortDateString()</td>
+                <td>@e.DateOfAdmission.ToShortDateString()</td>
+                <td>@e.Identifier</td>
+                <td>@e.Passport</td>
+                <td>@e.Charge</td>
+            </tr>
+
+        }
+    </table>
+
+</form>
+
