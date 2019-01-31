@@ -27,10 +27,11 @@ namespace TrabalhoBlueOpex
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("db"));
+            //services.AddDbContext<AppDbContext>(opt => opt.UseInMemoryDatabase("db"));
+            services.AddDbContext<AppDbContext>(opt => opt.UseSqlServer(Configuration.GetConnectionString("AppDbContext")));
 
             // Adiciona autenticação com Identity
-            services.AddIdentity<Employee, IdentityRole>()
+            services.AddIdentity<User, IdentityRole>()
                 .AddEntityFrameworkStores<AppDbContext>()
                 .AddDefaultTokenProviders();
 

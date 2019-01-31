@@ -8,30 +8,43 @@ using System.Threading.Tasks;
 
 namespace TrabalhoBlueOpex.Models
 {
-    public class Employee : IdentityUser
+    public class Employee
     {
-        public long CompanyRefIf { get; set; }
+        [Key]
+        public long Id{ get; set; }
 
-        [ForeignKey("CompanyRefId")]
+        [ForeignKey("CompanyId")]
+        public long CompanyId { get; set; }
         public Company Company { get; set; }
 
         [Required]
+        [Display(Prompt = "Nome")]
         public String Name { get; set; }
 
         [Required]
+        [Display(Prompt = "Identificador")]
         public long Identifier { get; set; }
 
         [Required]
+        [Display(Prompt = "Cargo")]
         public String Charge { get; set; }
-        public DateTime BirthDate { get; set; }
-        public DateTime DateOfAdmission { get; set; }
-        public String ProfileType { get; set; }
-        public String Cpf { get; set; }
-        public String Passport { get; set; }
 
         [Required]
-        [DataType(DataType.Password)]
-        public String Password {get; set;}
+        [Display(Prompt = "Data de nascimento")]
+        public DateTime BirthDate { get; set; }
+
+        [Required]
+        [Display(Prompt = "Data de admissão")]
+        public DateTime DateOfAdmission { get; set; }
+
+        [Display(Prompt = "Tipo de Perfil")]
+        public String ProfileType { get; set; }
+
+        [Display(Prompt = "CPF")]
+        public String Cpf { get; set; }
+
+        [Display(Prompt = "Passaporte")]
+        public String Passport { get; set; }
 
         public Employee() { }
 

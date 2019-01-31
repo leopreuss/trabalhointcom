@@ -8,12 +8,13 @@ using TrabalhoBlueOpex.Models;
 
 namespace TrabalhoBlueOpex.Db
 {
-    public class AppDbContext : IdentityDbContext<Employee>
+    public class AppDbContext : IdentityDbContext<User>
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {
         }
 
-        public DbSet<Employee> Employees { get; set; }
+        public DbSet<Employee> Employee { get; set; }
+        public DbSet<Company> Company { get; set; }
     }
 }

@@ -9,6 +9,7 @@ namespace TrabalhoBlueOpex.Models
 {
     public class Company
     {
+        [Key]
         public long CompanyId { get; set; }
         public IList<Employee> Employee { get; set; }
 
